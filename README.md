@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# NameDisplay React Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The `NameDisplay` component is a part of a web application that allows users to change their name in the URL and updates the displayed name in real-time as the user types.
 
-## Available Scripts
+## Import Statements
 
-In the project directory, you can run:
+- `React`, `useState`, and `useEffect` are imported from the 'react' library.
+- `useParams` and `useNavigate` are imported from 'react-router-dom'.
+- `Container`, `Form`, and `Button` are imported from 'react-bootstrap'.
 
-### `npm start`
+## Component Definition
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The `NameDisplay` component is defined as a functional component, following modern React patterns. It leverages React hooks like `useState` and `useEffect` for state management and side effects.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Hook Usage
 
-### `npm test`
+- It uses the `useParams` hook to get the value of the 'name' parameter from the URL.
+- It uses the `useNavigate` hook to obtain a navigation function for updating the URL.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## State Management
 
-### `npm run build`
+It uses the `useState` hook to manage the `inputName` state, which is initially set to an empty string. This state represents the user's name.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## useEffect
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The component uses the `useEffect` hook to update the `inputName` state whenever the 'name' parameter in the URL changes, ensuring that the displayed name always reflects the URL parameter.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Event Handling
 
-### `npm run eject`
+- It defines a `handleNameChange` function to handle changes in the input field. This function updates the `inputName` state based on user input.
+- It defines an `updateNameInUrl` function that uses the `navigate` function to update the URL with the new name entered in the input field, providing a seamless user experience.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Render
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The component renders a user-friendly interface:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- A header with a title: "Change Your Name in the URL."
+- A main section enclosed in a styled `Container` component from 'react-bootstrap.'
+- A greeting message that addresses the user by their name (defaulting to "Stranger" if no name is provided in the URL).
+- An input field for entering a new name.
+- A button to update the name in the URL.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Styling
 
-## Learn More
+Styling is applied to the components using inline CSS. This includes customizations to font size, background color, and border for a visually pleasing user interface.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This component is a versatile addition to a web application, offering a simple and engaging way for users to personalize their experience by changing their name in the URL.
