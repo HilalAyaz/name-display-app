@@ -1,2 +1,2 @@
-# NameDisplay React Component
+# NameDisplay React App
 
