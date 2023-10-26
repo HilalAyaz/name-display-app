@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { Container, Form, Button } from 'react-bootstrap'
 
 const NameDisplay = () => {
-  const { name } = useParams()
   const navigate = useNavigate()
-  const [inputName, setInputName] = useState('')
-
-  useEffect(() => {
-    setInputName(name || '')
-  }, [name])
+  const location = useLocation()
+  const urlSearchParams = new URLSearchParams(location.search)
+  const nameFromUrl = urlSearchParams.get('name')
+  const [inputName, setInputName] = useState(nameFromUrl || '')
 
   const handleNameChange = e => {
     setInputName(e.target.value)
@@ -37,7 +35,7 @@ const NameDisplay = () => {
                 lineHeight: '1.2'
               }}
             >
-              Hello, {inputName || 'Stranger!'}
+              Hello, {nameFromUrl || 'Stranger!'}
             </h1>
             <Form>
               <Form.Group className='mb-3'>
